@@ -3,14 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://aviraj-singh1.github.io/FinTrack",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
