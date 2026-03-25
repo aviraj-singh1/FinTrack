@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" fill="none">
+  <defs>
+    <linearGradient id="ftGrad" x1="0" y1="0" x2="48" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <path d="M2 4h14v4.5H7.5v5h7.5v4.5H7.5V28H2V4z" fill="url(#ftGrad)"/>
+  <path d="M20 4h16v4.5h-5.5V28h-5.5V8.5H20V4z" fill="#e2e8f0"/>
+</svg>
