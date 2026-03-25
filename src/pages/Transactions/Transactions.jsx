@@ -22,8 +22,7 @@ const Transactions = () => {
     type: '',
     dateFrom: '',
     dateTo: '',
-    sortBy: 'date',
-    sortOrder: 'desc',
+    sortOrder: 'newest',
   });
 
   const filteredTransactions = useMemo(() => {
@@ -59,15 +58,20 @@ const Transactions = () => {
 
     // Sort
     result.sort((a, b) => {
-      let comp = 0;
-      if (filters.sortBy === 'date') {
-        comp = new Date(a.date) - new Date(b.date);
-      } else if (filters.sortBy === 'amount') {
-        comp = a.amount - b.amount;
-      } else if (filters.sortBy === 'category') {
-        comp = (a.category || '').localeCompare(b.category || '');
+      if (filters.sortOrder === 'oldest') {
+        const diff = new Date(a.date) - new Date(b.date);
+        return diff !== 0 ? diff : transactions.indexOf(b) - transactions.indexOf(a);
       }
-      return filters.sortOrder === 'desc' ? -comp : comp;
+      if (filters.sortOrder === 'lowest') {
+        const diff = a.amount - b.amount;
+        return diff !== 0 ? diff : transactions.indexOf(b) - transactions.indexOf(a);
+      }
+      if (filters.sortOrder === 'highest') {
+        const diff = b.amount - a.amount;
+        return diff !== 0 ? diff : transactions.indexOf(a) - transactions.indexOf(b);
+      }
+      const diff = new Date(b.date) - new Date(a.date);
+      return diff !== 0 ? diff : transactions.indexOf(a) - transactions.indexOf(b);
     });
 
     return result;

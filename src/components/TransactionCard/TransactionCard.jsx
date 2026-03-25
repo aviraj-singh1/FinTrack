@@ -26,7 +26,9 @@ const TransactionCard = ({ transaction, onEdit, onDelete }) => {
             {recurring && <span className="recurring-badge">Recurring</span>}
           </div>
           <div className="txn-meta">
-            <span className="txn-category">{category || type}</span>
+            <span className="txn-category">
+              {category?.toLowerCase() === 'income' ? 'Income' : (category || (type ? type.charAt(0).toUpperCase() + type.slice(1) : ''))}
+            </span>
             <span className="txn-date">
               {format(new Date(date), 'MMM dd, yyyy')}
             </span>

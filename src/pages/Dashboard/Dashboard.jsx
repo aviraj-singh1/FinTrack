@@ -115,7 +115,7 @@ const Dashboard = () => {
                 {card.icon}
               </div>
             </div>
-            <span className={`summary-card-value${card.isSmall ? ' small' : ''}`}>
+            <span className={`summary-card-value${card.isSmall ? ' small' : ''} ${card.iconClass}`}>
               {card.value}
             </span>
           </motion.div>

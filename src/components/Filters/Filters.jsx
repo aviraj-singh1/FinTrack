@@ -12,8 +12,7 @@ const Filters = ({ filters, onChange }) => {
       type: '',
       dateFrom: '',
       dateTo: '',
-      sortBy: 'date',
-      sortOrder: 'desc',
+      sortOrder: 'newest',
     });
   };
 
@@ -65,25 +64,15 @@ const Filters = ({ filters, onChange }) => {
       </div>
 
       <div className="filter-group">
-        <label>Sort By</label>
-        <select
-          value={filters.sortBy}
-          onChange={(e) => handleChange('sortBy', e.target.value)}
-        >
-          <option value="date">Date</option>
-          <option value="amount">Amount</option>
-          <option value="category">Category</option>
-        </select>
-      </div>
-
-      <div className="filter-group">
         <label>Order</label>
         <select
           value={filters.sortOrder}
           onChange={(e) => handleChange('sortOrder', e.target.value)}
         >
-          <option value="desc">Newest / Highest</option>
-          <option value="asc">Oldest / Lowest</option>
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="lowest">Lowest</option>
+          <option value="highest">Highest</option>
         </select>
       </div>
 
